@@ -1,2 +1,20 @@
 <h1>Update Owner</h1>
 
+<form action="/owners" method="POST">
+<type="hidden" name="_method" value="PUT" />
+  <label>Name:</label>
+
+  <br>
+
+  <input type="text" name="owner[name]" value="<%= @owner.name %>">
+
+  <h3>Existing Pets</h3>
+  <% @pets.each do |pet| %>
+    <input type="checkbox" name="owner[pet_ids][]" id="<%= pet.id %>" value="<%= pet.id %>"><%= pet.name %><br>
+  <% end %>
+  <br>
+
+  <input type="submit" value="Create Owner">
+</form>
+
+
